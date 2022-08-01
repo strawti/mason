@@ -1,0 +1,5 @@
+name: infra
+description: Create a new infra
+version: "1.0"
+vars:
+  - name

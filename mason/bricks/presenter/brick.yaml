@@ -1,0 +1,5 @@
+name: presenter
+description: Create a new presenter
+version: "1.0"
+vars:
+  - name

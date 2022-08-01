@@ -1,0 +1,5 @@
+name: module
+description: Create a new module with presenter and infra
+version: "1.0"
+vars:
+  - name
