@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 
 import 'app_bindings.dart';
 import 'core/app_constants.dart';
-import 'core/app_pages.dart';
+import 'routes/app_pages.dart';
 import 'core/app_theme.dart';
-import 'presenter/auth/prensenter/login/login_page.dart';
 
+import 'presenter/splash/splash_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -15,13 +15,13 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'G10 Card',
+      title: '',
       debugShowCheckedModeBanner: false,
       theme: AppThemes.light,
       getPages: AppPages.pages,
       themeMode: ThemeMode.light,
       initialBinding: AppBindings(),
-      initialRoute: LoginPage.route,
+      initialRoute: SplashPage.route,
       fallbackLocale: const Locale('pt', 'BR'),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
