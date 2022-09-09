@@ -1,3 +1,2 @@
-class AppConstants {
-  const AppConstants._();
-}
+// Example
+// const constAppName = 'App Name';

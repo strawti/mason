@@ -1,3 +1,2 @@
-class AppAssets {
-  const AppAssets._();
-}
+// Exemple: 
+// const assetsIconApp = '/assets/icons/app.png';

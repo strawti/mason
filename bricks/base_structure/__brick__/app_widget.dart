@@ -3,11 +3,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 import 'app_bindings.dart';
-import 'core/app_constants.dart';
-import 'routes/app_pages.dart';
-import 'core/app_theme.dart';
-
 import 'presenter/splash/splash_page.dart';
+import 'routes/app_pages.dart';
+import 'themes/app_theme.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -17,8 +15,8 @@ class AppWidget extends StatelessWidget {
     return GetMaterialApp(
       title: '',
       debugShowCheckedModeBanner: false,
-      theme: AppThemes.light,
-      getPages: AppPages.pages,
+      theme: appThemeLight,
+      getPages: appPages,
       themeMode: ThemeMode.light,
       initialBinding: AppBindings(),
       initialRoute: SplashPage.route,
