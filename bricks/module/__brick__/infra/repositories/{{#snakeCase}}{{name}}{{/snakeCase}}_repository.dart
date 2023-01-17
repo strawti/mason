@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 import '../../../../../base_structure/__brick__/core/api_client/api_client.dart';
 
-class {{#pascalCase}}{{name}}{{/pascalCase}}Repository {}
+abstract class {{#pascalCase}}{{name}}{{/pascalCase}}Repository {}
 
 class {{#pascalCase}}{{name}}{{/pascalCase}}RepositoryImpl implements {{#pascalCase}}{{name}}{{/pascalCase}}Repository {
 
