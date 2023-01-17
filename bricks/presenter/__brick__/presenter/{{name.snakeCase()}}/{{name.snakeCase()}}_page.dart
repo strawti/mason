@@ -11,7 +11,7 @@ class {{#pascalCase}}{{name}}{{/pascalCase}}Page extends StatelessWidget {
       appBar: AppBar(
         title: const Text("{{#pascalCase}}{{name}}{{/pascalCase}}")
       ),
-      body: const Body{{#pascalCase}}{{name}}{{/pascalCase}}(),
+      body: Body{{#pascalCase}}{{name}}{{/pascalCase}}(),
     );
   }
 }

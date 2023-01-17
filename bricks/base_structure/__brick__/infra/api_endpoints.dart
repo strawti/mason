@@ -1,5 +1,6 @@
 class ApiEndpoints {
-  const ApiEndpoints._();
+  static const baseUrl = '';
 
-  static const base = '';
+  // Auth
+  static const login = '/login';
 }

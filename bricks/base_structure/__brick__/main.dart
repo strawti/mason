@@ -7,7 +7,6 @@ import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'app_widget.dart';
-import 'core/app_notifications.dart';
 
 void main() async {
   runZonedGuarded(() async {
@@ -18,7 +17,6 @@ void main() async {
     ]);
 
     //await Firebase.initializeApp();
-    await AppNotifications().init();
     await GetStorage.init();
 
    // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;

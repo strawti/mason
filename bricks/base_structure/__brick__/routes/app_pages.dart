@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
 
-import '../presenter/splash/splash_page.dart';
+import 'routers_imports.dart';
 
-final appPages = <GetPage>[
-  GetPage(
-    name: SplashPage.route,
-    page: () => SplashPage(),
-  ),
-];
+class AppPages {
+  static final List<GetPage> pages = [
+    GetPage(
+      name: SplashPage.route,
+      page: () => const SplashPage(),
+    ),
+  ];
+}

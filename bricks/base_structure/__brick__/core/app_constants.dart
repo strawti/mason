@@ -1,2 +1,3 @@
-// Example
-// const constAppName = 'App Name';
+class AppConstants {
+  static const appTitle = "";
+}

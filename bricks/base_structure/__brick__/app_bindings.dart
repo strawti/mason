@@ -1,56 +1,38 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/request/request.dart';
 
-import 'core/app_token.dart';
-
+import 'core/api_client/api_client.dart';
+import 'core/api_client/get_connect_client.dart';
+import 'core/app_notifications.dart';
+import 'infra/api_utils.dart';
+import 'infra/services/firebase_notifications_service.dart';
+import 'infra/services/local_notifications_service.dart';
 
 class AppBindings implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() {
+      final apiUtils = ApiUtils();
       final connect = GetConnect();
-      connect.timeout = const Duration(seconds: 30);
-      connect.httpClient.addRequestModifier(requestModifier);
-      connect.httpClient.addResponseModifier(responseModifier);
-      connect.httpClient.errorSafety = false;
+
+      connect.httpClient.timeout = const Duration(seconds: 30);
+      connect.httpClient.addRequestModifier(apiUtils.requestModifier);
+      connect.httpClient.addResponseModifier(apiUtils.responseModifier);
+
       return connect;
+    }, fenix: true);
+
+    Get.put<ApiClient>(GetConnectClient(Get.find()));
+    // Get.put<ApiClient>(HttpClient(Get.find()));
+
+    Get.put<LocalNotificationService>(LocalNotificationServiceImpl());
+    Get.put(FirebaseNotificationsService());
+
+    Get.putAsync(() async {
+      final dependencie = AppNotifications(
+        localNotificationService: Get.find(),
+        firebaseNotificationsService: Get.find(),
+      );
+      return await dependencie.initialize();
     });
-  }
-
-  FutureOr<Request> requestModifier(Request request) async {
-    String? token = AppToken.instance.token;
-
-    request.headers.addAll({
-      if (token.isNotEmpty) 'Authorization': 'Bearer $token',
-      'content-type': 'application/json',
-    });
-
-    return request;
-  }
-
-  FutureOr<dynamic> responseModifier(Request request, Response response) async {
-    showLogs(request, response);
-
-    if (response.unauthorized) {
-    }
-
-    return response;
-  }
-
-  void showLogs(Request request, Response response) {
-    if (kDebugMode) {
-      print('\n\n');
-      print('========================== REQUEST ==========================');
-      print('(${request.method}) => ${request.url}');
-      print('HEADERS: ${request.headers}');
-      print('');
-      print('========================== RESPONSE ==========================');
-      print('STATUS CODE: ${response.statusCode}: ${response.statusText}');
-      print('BODY: ${response.body}');
-      print('\n\n');
-    }
   }
 }

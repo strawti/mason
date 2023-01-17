@@ -3,9 +3,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 import 'app_bindings.dart';
-import 'presenter/splash/splash_page.dart';
+import 'core/app_constants.dart';
 import 'routes/app_pages.dart';
-import 'themes/app_theme.dart';
+import 'themes/app_themes.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -13,14 +13,13 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: '',
+      title: AppConstants.appTitle,
       debugShowCheckedModeBanner: false,
-      theme: appThemeLight,
-      getPages: appPages,
+      getPages: AppPages.pages,
+      initialRoute: SplashPage.route,
+      theme: AppThemes.light,
       themeMode: ThemeMode.light,
       initialBinding: AppBindings(),
-      initialRoute: SplashPage.route,
-      fallbackLocale: const Locale('pt', 'BR'),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
