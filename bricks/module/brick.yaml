@@ -1,5 +1,5 @@
 name: module
 description: Create a new module with presenter and infra
-version: "2.0"
+version: "2.1"
 vars:
   - name  
