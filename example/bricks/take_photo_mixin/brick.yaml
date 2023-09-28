@@ -1,0 +1,3 @@
+name: take_photo_mixin
+description: Cria o Mixin TakePhotoMixin em app/shared/mixins
+version: "1.0"

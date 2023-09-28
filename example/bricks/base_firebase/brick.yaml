@@ -1,0 +1,6 @@
+name: base_firebase
+description: Cria a estrutura inicial preparado para utilizar o Firebase
+version: "1.0"
+
+vars:
+  - title_app

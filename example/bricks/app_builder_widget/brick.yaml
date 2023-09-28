@@ -1,0 +1,3 @@
+name: app_builder_widget
+description: Cria o AppBuilderWidget em app/shared/widgets
+version: "1.0"

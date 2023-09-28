@@ -1,5 +1,0 @@
-name: infra
-description: Create a new infra
-version: "2.0"
-vars:
-  - name
